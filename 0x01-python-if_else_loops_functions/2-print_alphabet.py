@@ -1,6 +1,3 @@
 #!/usr/bin/python3
-
-# use python ascii code numbers for lowercase alphabets
 for ascii in range(97, 123):
-    # outputs one alphabet at a time and remove auto-newline
     print("{}".format(chr(ascii)), end='')
