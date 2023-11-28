@@ -3,4 +3,4 @@
 # use python ascii code numbers for lowercase alphabets
 for ascii in range(97, 123):
     # outputs one alphabet at a time and remove auto-newline
-    print(chr(ascii), end='')
+    print("{}".format(chr(ascii)), end='')
