@@ -11,17 +11,13 @@ if __name__ == "__main__":
     b = 5
 
     # addition operation
-    result = calc.add(a, b)
-    print("{} + {} = {}".format(a, b, result))
+    print("{} + {} = {}".format(a, b, calc.add(a, b)))
 
     # subtraction operation
-    result = calc.sub(a, b)
-    print("{} - {} = {}".format(a, b, result))
+    print("{} - {} = {}".format(a, b, calc.sub(a, b)))
 
     # multiplication operation
-    result = calc.mul(a, b)
-    print("{} * {} = {}".format(a, b, result))
+    print("{} * {} = {}".format(a, b, calc.mul(a, b)))
 
     # division operation
-    result = calc.div(a, b)
-    print("{} / {} = {}".format(a, b, result))
+    print("{} / {} = {}".format(a, b, calc.div(a, b)))
