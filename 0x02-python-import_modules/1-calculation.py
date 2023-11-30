@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-"""a program that imports functions from the file
-calculator_1.py, does some Maths, and prints the result.
+"""a program that imports functions, does some Maths,
+and prints the result.
 """
 
 if __name__ == "__main__":
