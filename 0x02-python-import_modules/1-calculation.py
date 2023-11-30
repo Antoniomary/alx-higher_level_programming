@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
-"""a program that imports functions, does some Maths,
-and prints the result.
-"""
-
 if __name__ == "__main__":
+    """a program that imports functions, does some Maths,
+    and prints the result.
+    """
+
     import calculator_1 as calc
 
     a = 10
