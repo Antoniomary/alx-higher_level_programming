@@ -5,19 +5,19 @@ if __name__ == "__main__":
     and prints the result.
     """
 
-    import calculator_1 as calc
+    from calculator_1 import add, sub, mul, div
 
     a = 10
     b = 5
 
     # addition operation
-    print("{} + {} = {}".format(a, b, calc.add(a, b)))
+    print("{} + {} = {}".format(a, b, add(a, b)))
 
     # subtraction operation
-    print("{} - {} = {}".format(a, b, calc.sub(a, b)))
+    print("{} - {} = {}".format(a, b, sub(a, b)))
 
     # multiplication operation
-    print("{} * {} = {}".format(a, b, calc.mul(a, b)))
+    print("{} * {} = {}".format(a, b, mul(a, b)))
 
     # division operation
-    print("{} / {} = {}".format(a, b, calc.div(a, b)))
+    print("{} / {} = {}".format(a, b, div(a, b)))
