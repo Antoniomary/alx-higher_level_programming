@@ -10,32 +10,7 @@ def add_tuple(tuple_a=(), tuple_b=()):
     Returns:
         resulting tuple from addition.
     """
-    if tuple_a and not tuple_b:
-        len_a = len(tuple_a)
-        if len_a == 1:
-            return tuple_a[0], 0
-        else:
-            return tuple_a[0], tuple_a[1]
-    elif tuple_b and not tuple_a:
-        len_b = len(tuple_b)
-        if len_b == 1:
-            return tuple_b[0], 0
-        else:
-            return tuple_b[0], tuple_b[1]
-    elif not tuple_a and not_tuple_b:
-        return 0, 0
-    else:
-        len_a = len(tuple_a)
-        len_b = len(tuple_b)
-
-        x = tuple_a[0] + tuple_b[0]
-        y = 0
-        if len_a >= 2 and len_b >= 2:
-            y = tuple_a[1] + tuple_b[1]
-        elif len_a == 1 and len_b >= 2:
-            y = tuple_b[1]
-        elif len_b == 1 and len_a >= 2:
-            y = tuple_a[1]
-
-        tuple_c = x, y
-        return tuple_c
+    tuple_x = tuple_a + (0, 0)
+    tuple_y = tuple_b + (0, 0)
+    tuple_c = tuple_x[0] + tuple_y[0], tuple_x[1] + tuple_y[1]
+    return tuple_c
