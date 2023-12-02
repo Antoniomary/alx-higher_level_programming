@@ -7,4 +7,4 @@ def print_list_integer(my_list=[]):
         my_list: a list of the integers to print.
     """
     for number in my_list:
-        print("{}".format(number))
+        print("{:d}".format(number))
