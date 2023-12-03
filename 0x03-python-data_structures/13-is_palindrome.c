@@ -12,26 +12,37 @@ int is_palindrome(listint_t **head)
 	if (*head && (*head)->next)
 	{
 	listint_t *temp = *head;
-	int len = 0, i, mid, *num = NULL;
+	listint_t *ptr1, *ptr2;
 
-	for ( ; temp; temp = temp->next)
-		++len;
-
-	num = (int *) malloc(sizeof(int) * len);
-	if (!num)
+	ptr1 = ptr2 = *head;
+	while (ptr2 && ptr2->next)
 	{
-		printf("Memory allocation error");
-		exit(1);
+		ptr1 = ptr1->next;
+		ptr2 = ptr2->next->next;
 	}
 
-	for (i = 0, temp = *head; temp; temp = temp->next)
-		num[i++] = temp->n;
+	if (ptr2)
+		ptr1 = ptr1->next;
 
-	for (mid = len / 2, i = 0; i < mid; ++i)
-		if (num[i] != num[len - 1 - i])
-			return (free(num), 0);
+	temp = ptr1;
+	ptr2 = NULL;
+	ptr1 = ptr1->next;
+	while (ptr1)
+	{
+		temp->next = ptr2;
+		ptr2 = ptr1;
+		ptr1 = ptr1->next;
+	}
+	temp = ptr2;
+	ptr1 = *head;
 
-	free(num);
+	while (temp && ptr1)
+	{
+		if (temp->n != ptr1->n)
+			return (0);
+		temp =temp->next;
+		ptr1 = ptr1->next;
+	}
 	}
 
 	return (1);
