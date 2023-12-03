@@ -15,7 +15,7 @@ int is_palindrome(listint_t **head)
 
 	prev = slow = fast = *head;
 	temp = NULL;
-	/* move to the first half of list and reverse it while moving */
+	/* move through the first half of list and reverse it while moving */
 	while (fast && fast->next)
 	{
 		fast = fast->next->next;
@@ -29,11 +29,12 @@ int is_palindrome(listint_t **head)
 	if (fast)
 		slow = slow->next;
 
+	/* move the pointers left and right and compare value */
 	while (temp && slow)
 	{
 		if (temp->n != slow->n)
 			return (0);
-		temp =temp->next;
+		temp = temp->next;
 		slow = slow->next;
 	}
 	}
