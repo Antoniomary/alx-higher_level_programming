@@ -11,37 +11,30 @@ int is_palindrome(listint_t **head)
 {
 	if (*head && (*head)->next)
 	{
-	listint_t *temp = *head;
-	listint_t *ptr1, *ptr2;
+	listint_t *temp, *slow, *fast, *prev;
 
-	ptr1 = ptr2 = *head;
-	while (ptr2 && ptr2->next)
+	prev = slow = fast = *head;
+	temp = NULL;
+	/* move to the first half of list and reverse it while moving */
+	while (fast && fast->next)
 	{
-		ptr1 = ptr1->next;
-		ptr2 = ptr2->next->next;
+		fast = fast->next->next;
+		prev = slow;
+		slow = slow->next;
+		prev->next = temp;
+		temp = prev;
 	}
 
-	if (ptr2)
-		ptr1 = ptr1->next;
+	/* if the list is odd, we move one node forward */
+	if (fast)
+		slow = slow->next;
 
-	temp = ptr1;
-	ptr2 = NULL;
-	ptr1 = ptr1->next;
-	while (ptr1)
+	while (temp && slow)
 	{
-		temp->next = ptr2;
-		ptr2 = ptr1;
-		ptr1 = ptr1->next;
-	}
-	temp = ptr2;
-	ptr1 = *head;
-
-	while (temp && ptr1)
-	{
-		if (temp->n != ptr1->n)
+		if (temp->n != slow->n)
 			return (0);
 		temp =temp->next;
-		ptr1 = ptr1->next;
+		slow = slow->next;
 	}
 	}
 
