@@ -7,6 +7,5 @@ def print_sorted_dictionary(a_dictionary):
         a_dictionary: the dictionary
     """
     if a_dictionary:
-        ordered_key = sorted(a_dictionary.keys())
-        for key in ordered_key:
-            print(key, a_dictionary[key], sep=" : ")
+        for key in sorted(a_dictionary.keys()):
+            print(key, a_dictionary[key], sep=": ")
