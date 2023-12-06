@@ -8,7 +8,5 @@ def update_dictionary(a_dictionary, key, value):
         key: the key
         value: the value to attach to the key
     """
-    if not a_dictionary:
-        a_dictionary = {}
     a_dictionary[key] = value
     return a_dictionary
