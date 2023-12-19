@@ -51,18 +51,18 @@ class Square:
         it prints spaces before the # character on a column if position is set
         """
 
-        if self.__position[1] > 0:
-            for line in range(self.__position[1]):
-                print()
-        if self.__size:
+        if self.__size == 0:
+            print()
+        else:
+            if self.__position[1] > 0:
+                for line in range(self.__position[1]):
+                    print()
             for row in range(self.__size):
                 for space in range(self.__position[0]):
                     print(" ", end="")
                 for col in range(self.__size):
                     print("#", end="")
                 print()
-        else:
-            print()
 
     @property
     def position(self):
