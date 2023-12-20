@@ -92,6 +92,8 @@ class Square:
         """gives square printability"""
 
         diagram = ""
+        if self.__size == 0:
+            return diagram
         if self.__position[1] > 0:
             for line in range(self.__position[1]):
                 diagram += '\n'
