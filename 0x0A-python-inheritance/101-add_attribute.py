@@ -7,7 +7,7 @@
 def add_attribute(obj, name, value):
     """adds atttibute to an instance"""
     if hasattr(obj, "__dict__"):
-        obj.name = value
+        setattr(obj, name, value)
         return
     elif hasattr(type(obj), "__slots__"):
         if name in type(obj).__slots__:
