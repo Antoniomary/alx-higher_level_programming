@@ -9,8 +9,8 @@ def add_attribute(obj, name, value):
     if hasattr(obj, "__dict__"):
         obj.name = value
         return
-    elif hasattr(obj, "__slots__"):
-        if name in obj.__slots__:
+    elif hasattr(type(obj), "__slots__"):
+        if name in type(obj).__slots__:
             obj.name = value
             return
 
