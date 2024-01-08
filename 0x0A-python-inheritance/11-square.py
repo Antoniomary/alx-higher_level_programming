@@ -11,15 +11,15 @@ class Square(Rectangle):
     """
     def __init__(self, size):
         """creates an instance of Square"""
-        super().__init__(size, size)
         self.integer_validator("size", size)
+        super().__init__(size, size)
         self.__size = size
 
     def area(self):
         """returns the area of a square"""
-        return Rectangle.area(self)
+        return super().area()
 
     def __str__(self):
         """returns square description"""
-        description = Rectangle.__str__(self)
+        description = super().__str__()
         return description.replace("Rectangle", "Square")
