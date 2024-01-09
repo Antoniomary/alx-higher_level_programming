@@ -67,3 +67,15 @@ Now using it:
     [5, 5, 5, 5]
     >>> my_list.print_sorted()
     [5, 5, 5, 5]
+
+    >>> doc = __import__('1-my_list').__doc__ 
+    >>> len(doc) > 1
+    True
+
+    >>> doc = __import__('1-my_list').MyList.__doc__ 
+    >>> len(doc) > 1
+    True
+
+    >>> doc = __import__('1-my_list').MyList.print_sorted.__doc__ 
+    >>> len(doc) > 1
+    True
