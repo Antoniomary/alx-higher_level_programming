@@ -47,3 +47,9 @@ Now using it:
     >>> my_list = MyList(a)
     >>> my_list.print_sorted()
     [1, 2, 3, 4, 5]
+
+    >>> my_list = [1, 2, 3]
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+        ...
+    AttributeError: 'list' object has no attribute 'print_sorted'
