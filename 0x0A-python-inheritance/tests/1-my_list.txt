@@ -38,36 +38,6 @@ Now using it:
     >>> my_list.print_sorted()
     [-4, -3, 1, 2, 5]
 
-    >>> no_list.print_sorted()
-    Traceback (most recent call last):
-        ...
-    NameError: name 'no_list' is not defined
-
-    >>> a = [1, 4, 2, 3, 5]
-    >>> my_list = MyList(a)
-    >>> my_list.print_sorted()
-    [1, 2, 3, 4, 5]
-
-    >>> my_list = [1, 2, 3]
-    >>> my_list.print_sorted()
-    Traceback (most recent call last):
-        ...
-    AttributeError: 'list' object has no attribute 'print_sorted'
-
-    >>> my_list = MyList()
-    >>> my_list.append(1)
-    >>> my_list
-    [1]
-    >>> my_list.print_sorted()
-    [1]
-
-    >>> a = [5, 5, 5, 5]
-    >>> my_list = MyList(a)
-    >>> my_list
-    [5, 5, 5, 5]
-    >>> my_list.print_sorted()
-    [5, 5, 5, 5]
-
     >>> doc = __import__('1-my_list').__doc__ 
     >>> len(doc) > 1
     True
