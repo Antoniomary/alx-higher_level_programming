@@ -17,9 +17,10 @@ class Student:
         if attrs:
             dict_rep = {}
             for attr in attrs:
-                for key, value in self.__dict__.items():
-                    if attr == key: 
-                        dict_rep[key] = value
+                if not type(attr) == str:
+                    return self.__dict__
+                if attr in self.__dict__:
+                    dict_rep[attr] = self.__dict__[attr]
             return dict_rep
         else:
             return self.__dict__
