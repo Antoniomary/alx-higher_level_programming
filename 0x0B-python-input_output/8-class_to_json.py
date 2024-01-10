@@ -2,8 +2,6 @@
 """
     A module for ``class_to_json`` function
 """
-import json
-MyClass = __import__('8-my_class').MyClass
 
 
 def class_to_json(obj):
