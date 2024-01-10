@@ -14,7 +14,7 @@ class Student:
 
     def to_json(self, attrs=None):
         """retrieves a dictionary representation of a Student instance"""
-        if attrs:
+        if type(attrs) == list:
             dict_rep = {}
             for attr in attrs:
                 if not type(attr) == str:
