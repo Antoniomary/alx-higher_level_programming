@@ -3,27 +3,43 @@
     A log parsing script
 """
 import sys
-import random
 
 
-count, total_size = 0, 0
-parsed_log = {}
-try:
-    for line in sys.stdin:
-        count += 1
-        line = line.split()[-2:]
-        total_size += int(line[-1])
-        if parsed_log.get(line[0], "Not found") == "Not found":
-            parsed_log[line[0]] = 1
-        else:
-            parsed_log[line[0]] += 1
-        if count == 10:
-            print("File size: {:d}".format(total_size))
-            for code in sorted(parsed_log):
-                print("{:s}: {:d}".format(code, parsed_log[code]))
-            count = 0
-except KeyboardInterrupt:
+def print_data(total_size, status_codes):
+    """prints the metrics parsed"""
     print("File size: {:d}".format(total_size))
-    for code in sorted(parsed_log):
-        print("{:s}: {:d}".format(code, parsed_log[code]))
-    raise
+    for code in sorted(status_codes):
+        if status_codes[code] > 0:
+            print("{:d}: {:d}".format(code, status_codes[code]))
+
+
+def main():
+    count, total_size = 0, 0
+    status_codes = {
+            200: 0,
+            301: 0,
+            400: 0,
+            401: 0,
+            403: 0,
+            404: 0,
+            405: 0,
+            500: 0,
+        }
+
+    try:
+        for line in sys.stdin:
+            count += 1
+            line = line.split()[-2:]
+            total_size += int(line[-1])
+            code = int(line[0])
+            status_codes[code] += 1
+            if count % 10 == 0:
+                print_data(total_size, status_codes)
+    except KeyboardInterrupt:
+        print_data(total_size, status_codes)
+        # sys.stdout.flush()
+        raise
+
+
+if __name__ == "__main__":
+    main()
