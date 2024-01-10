@@ -7,10 +7,12 @@ import sys
 
 def print_data(total_size, status_codes):
     """prints the metrics parsed"""
-    print("File size: {:d}".format(total_size))
-    for code in sorted(status_codes):
+    data = f"File size: {total_size}\n"
+    sorted_status_codes = sorted(status_codes)
+    for code in sorted_status_codes:
         if status_codes[code] > 0:
-            print("{:d}: {:d}".format(code, status_codes[code]))
+            data += str(code) + ': ' + str(status_codes[code]) + '\n'
+    print(data, end='')
 
 
 def main():
@@ -37,7 +39,6 @@ def main():
                 print_data(total_size, status_codes)
     except KeyboardInterrupt:
         print_data(total_size, status_codes)
-        # sys.stdout.flush()
         raise
 
 
