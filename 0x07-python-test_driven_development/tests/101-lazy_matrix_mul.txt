@@ -17,13 +17,16 @@ Checking documentation:
 Now using it:
 
     >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
-    [[7, 10], [15, 22]]
+    array([[ 7, 10],
+           [15, 22]])
 
     >>> lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]])
-    [[13, 16]]
+    array([[13, 16]])
 
     >>> lazy_matrix_mul([[1, 2], [3, 4], [5, 6]], [[1, 2], [3, 4]])
-    [[7, 10], [15, 22], [23, 34]]
+    array([[ 7, 10],
+           [15, 22],
+           [23, 34]])
 
     >>> lazy_matrix_mul()
     Traceback (most recent call last):
@@ -50,7 +53,7 @@ Now using it:
         ...
     TypeError: m_a must be a list of lists
 
-    >>> lazy matrix_mul([[1, 2]], [1, 2])
+    >>> lazy_matrix_mul([[1, 2]], [1, 2])
     Traceback (most recent call last):
         ...
     TypeError: m_b must be a list of lists
