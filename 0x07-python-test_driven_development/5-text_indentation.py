@@ -24,7 +24,7 @@ def text_indentation(text):
             while i < len(new_text) and new_text[i] == '\n':
                 print()
                 i += 1
-            
+
             if i < len(new_text):  # check for IndexError
                 new_text = new_text[i:].lstrip(" \t")  # removes blanks
                 i = 0  # start from 0 to account for len change in text
