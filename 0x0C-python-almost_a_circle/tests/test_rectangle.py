@@ -76,7 +76,7 @@ class TestRectangle(unittest.TestCase):
         self.r1.x = 3
         self.r1.y = 4
         self.assertEqual(self.r1.width, 2)
-        self.assertEqual(self.r1.height,10)
+        self.assertEqual(self.r1.height, 10)
         self.assertEqual(self.r1.x, 3)
         self.assertEqual(self.r1.y, 4)
 
