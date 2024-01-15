@@ -43,6 +43,11 @@ class TestRectangle(unittest.TestCase):
         self.assertTrue(len(Rectangle.y.fset.__doc__) > 1)
         self.assertTrue(len(Rectangle.to_dictionary.__doc__) > 1)
 
+    def test_invalid_number_of_arguments(self):
+        """test the number of arguments passed at instantiation"""
+        with self.assertRaises(TypeError):
+            r1 = Rectangle(4)
+
     def test_Rectangle_inheritance_from_Base(self):
         """tests whether Rectangle is a subclass of Base"""
         self.assertTrue(issubclass(Rectangle, Base))

@@ -44,6 +44,11 @@ class TestSquare(unittest.TestCase):
         self.assertTrue(len(Square.y.fset.__doc__) > 1)
         self.assertTrue(len(Square.to_dictionary.__doc__) > 1)
 
+    def test_invalid_number_of_arguments(self):
+        """test the number of arguments passed at instantiation"""
+        with self.assertRaises(TypeError):
+            r1 = Square()
+
     def test_Square_inheritance_from_Rectangle(self):
         """tests whether Square is a subclass of Rectangle"""
         self.assertTrue(issubclass(Square, Rectangle))
