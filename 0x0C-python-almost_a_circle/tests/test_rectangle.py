@@ -34,13 +34,13 @@ class TestRectangle(unittest.TestCase):
         self.assertTrue(len(Rectangle.__str__.__doc__) > 1)
         self.assertTrue(len(Rectangle.update.__doc__) > 1)
         self.assertTrue(len(Rectangle.width.__doc__) > 1)
-        # self.assertTrue(len(Rectangle..__doc__) > 1)
+        self.assertTrue(len(Rectangle.width.fset.__doc__) > 1)
         self.assertTrue(len(Rectangle.height.__doc__) > 1)
-        # self.assertTrue(len(Rectangle..__doc__) > 1)
+        self.assertTrue(len(Rectangle.height.fset.__doc__) > 1)
         self.assertTrue(len(Rectangle.x.__doc__) > 1)
-        # self.assertTrue(len(Rectangle..__doc__) > 1)
+        self.assertTrue(len(Rectangle.x.fset.__doc__) > 1)
         self.assertTrue(len(Rectangle.y.__doc__) > 1)
-        # self.assertTrue(len(Rectangle..__doc__) > 1)
+        self.assertTrue(len(Rectangle.y.fset.__doc__) > 1)
         self.assertTrue(len(Rectangle.to_dictionary.__doc__) > 1)
 
     def test_Rectangle_inheritance_from_Base(self):

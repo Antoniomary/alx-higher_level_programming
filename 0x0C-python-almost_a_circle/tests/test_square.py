@@ -35,13 +35,13 @@ class TestSquare(unittest.TestCase):
         self.assertTrue(len(Square.__str__.__doc__) > 1)
         self.assertTrue(len(Square.update.__doc__) > 1)
         self.assertTrue(len(Square.width.__doc__) > 1)
-        # self.assertTrue(len(Square..__doc__) > 1)
+        self.assertTrue(len(Square.width.fset.__doc__) > 1)
         self.assertTrue(len(Square.height.__doc__) > 1)
-        # self.assertTrue(len(Square..__doc__) > 1)
+        self.assertTrue(len(Square.height.fset.__doc__) > 1)
         self.assertTrue(len(Square.x.__doc__) > 1)
-        # self.assertTrue(len(Square..__doc__) > 1)
+        self.assertTrue(len(Square.x.fset.__doc__) > 1)
         self.assertTrue(len(Square.y.__doc__) > 1)
-        # self.assertTrue(len(Square..__doc__) > 1)
+        self.assertTrue(len(Square.y.fset.__doc__) > 1)
         self.assertTrue(len(Square.to_dictionary.__doc__) > 1)
 
     def test_Square_inheritance_from_Rectangle(self):
