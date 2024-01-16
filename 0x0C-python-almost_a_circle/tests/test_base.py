@@ -91,7 +91,7 @@ class TestBase(unittest.TestCase):
         wrong = "wrong type"
 
         with self.assertRaises(AttributeError):
-            Square.save_to_file([r1, wrong])
+            Square.save_to_file([s1, wrong])
 
         Square.save_to_file([s1])
         with open("Square.json", 'r') as f:
