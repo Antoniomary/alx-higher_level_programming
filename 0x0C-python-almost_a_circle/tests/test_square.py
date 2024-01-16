@@ -95,6 +95,8 @@ class TestSquare(unittest.TestCase):
             r2 = Square("10")
         with self.assertRaises(ValueError, msg="width must be > 0"):
             r2 = Square(0)
+        with self.assertRaises(ValueError, msg="width must be > 0"):
+            r2 = Square(-1)
         with self.assertRaises(TypeError, msg="width must be an integer"):
             r1.size = 10.0
         with self.assertRaises(ValueError, msg="width must be > 0"):
