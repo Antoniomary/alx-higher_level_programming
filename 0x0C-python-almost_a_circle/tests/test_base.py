@@ -2,6 +2,7 @@
 """A set of unittests for the ``Base`` class"""
 import unittest
 import json
+import os
 from models import base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -110,15 +111,21 @@ class TestBase(unittest.TestCase):
             content = f.read()
         self.assertEqual(json.loads(content), [])
 
-        Rectangle.save_to_file(None)
-        with open("Rectangle.json", 'r') as f:
-            content = f.read()
-        self.assertEqual(json.loads(content), [])
+        os.remove("Square.json")
 
         Square.save_to_file([])
         with open("Square.json", 'r') as f:
             content = f.read()
         self.assertEqual(json.loads(content), [])
+
+        os.remove("Rectangle.json")
+
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", 'r') as f:
+            content = f.read()
+        self.assertEqual(json.loads(content), [])
+
+        os.remove("Rectangle.json")
 
         Rectangle.save_to_file([])
         with open("Rectangle.json", 'r') as f:
@@ -170,7 +177,18 @@ class TestBase(unittest.TestCase):
         """test the load_from_file class method
            It should returns a list of instances.
         """
-        pass
+        try:
+            os.remove("Square.json")
+        except Exception:
+            pass
+
+        self.assertEqual(Square.load_from_file(), [])
+        s1 = Square(4, 0, 0, 3)
+        Square.save_to_file([s1])
+        with open("Square.json", 'r') as f:
+            content = f.read()
+        expected = [{"x": 0, "y": 0, "id": 3, "size": 4}]
+        self.assertEqual(json.loads(content), expected)
 
 
 if __name__ == "__main__":
