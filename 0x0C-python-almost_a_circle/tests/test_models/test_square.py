@@ -99,6 +99,8 @@ class TestSquare(unittest.TestCase):
             r1.size = 10.0
         with self.assertRaises(ValueError, msg="width must be > 0"):
             r1.size = -1
+        with self.assertRaises(ValueError, msg="width must be > 0"):
+            Square(-1)
 
     def test_x_y_for_validation(self):
         """test whether x and y get the proper type or value"""
