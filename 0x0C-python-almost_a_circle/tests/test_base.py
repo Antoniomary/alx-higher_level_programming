@@ -84,13 +84,20 @@ class TestBase(unittest.TestCase):
     def test_save_to_file(self):
         """test the save_to_file class method"""
         with self.assertRaises(AttributeError):
-            Rectangle.save_to_file(["wrong"])
+            Square.save_to_file(["wrong"])
 
+        s1 = Square(4, 0, 0, 3)
         r1 = Rectangle(4, 5, 0, 0, 3)
         wrong = "wrong type"
 
         with self.assertRaises(AttributeError):
-            Rectangle.save_to_file([r1, wrong])
+            Square.save_to_file([r1, wrong])
+
+        Square.save_to_file([s1])
+        with open("Square.json", 'r') as f:
+            content = f.read()
+        expected = [{"x": 0, "y": 0, "id": 3, "size": 4}]
+        self.assertEqual(json.loads(content), expected)
 
         Rectangle.save_to_file([r1])
         with open("Rectangle.json", 'r') as f:
@@ -98,8 +105,18 @@ class TestBase(unittest.TestCase):
         expected = [{"x": 0, "y": 0, "id": 3, "height": 5, "width": 4}]
         self.assertEqual(json.loads(content), expected)
 
+        Square.save_to_file(None)
+        with open("Square.json", 'r') as f:
+            content = f.read()
+        self.assertEqual(json.loads(content), [])
+
         Rectangle.save_to_file(None)
         with open("Rectangle.json", 'r') as f:
+            content = f.read()
+        self.assertEqual(json.loads(content), [])
+
+        Square.save_to_file([])
+        with open("Square.json", 'r') as f:
             content = f.read()
         self.assertEqual(json.loads(content), [])
 
@@ -148,16 +165,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(str(s2), "[Square] (3) 0/0 - 3")
         self.assertFalse(s1 is s2)
         self.assertFalse(s1 == s2)
-
-    def test_load_from_file(self):
-        """test the load_from_file class method
-           It should returns a list of instances.
-        """
-        pass
-
-    def test_save_to_file_cvs(self):
-        """test the save_to_file_cvs class method"""
-        pass
 
     def test_load_from_file(self):
         """test the load_from_file class method
