@@ -4,6 +4,7 @@
 """
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -116,6 +117,48 @@ class Base:
         except FileNotFoundError:
             return []
 
+    @staticmethod
     def draw(list_rectangles, list_squares):
         """opens a window and draws all the Rectangles and Squares"""
-        pass
+        if list_rectangles is None and list_squares is None:
+            return
+
+        rect_err = "list_rectangles must be a list of Rectangle objects only"
+        square_err = "list_squares must be a list of Square ibjects only"
+        for each in list_rectangles:
+            if type(each).__name__ != "Rectangle":
+                raise TypeError(rect_err)
+
+        for each in list_squares:
+            if type(each).__name__ != "Square":
+                raise TypeError(square_err)
+
+        shape = turtle.Turtle()
+        shape.hideturtle()
+        shape.speed(1)
+
+        shape.color("blue", "cyan")
+        for rect in list_rectangles:
+            shape.penup()
+            shape.goto(rect.x, rect.y)
+            shape.pendown()
+            shape.begin_fill()
+            for i in range(2):
+                shape.forward(rect.width)
+                shape.left(90)
+                shape.forward(rect.height)
+                shape.left(90)
+            shape.end_fill()
+
+        shape.color("red", "cyan")
+        for square in list_squares:
+            shape.penup()
+            shape.goto(square.x, square.y)
+            shape.pendown()
+            shape.begin_fill()
+            for i in range(4):
+                shape.forward(square.size)
+                shape.left(90)
+            shape.end_fill()
+
+        turtle.done()
