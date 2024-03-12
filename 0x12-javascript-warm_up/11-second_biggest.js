@@ -10,7 +10,7 @@ if (ac > 3) {
   if (ac === 4) {
     if (max < process.argv[3]) {
       secondMax = max;
-    } else if (process.argv[3] < max) {
+    } else {
       secondMax = process.argv[3];
     }
   } else {
