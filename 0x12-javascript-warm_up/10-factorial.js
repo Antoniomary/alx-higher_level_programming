@@ -13,7 +13,7 @@ if (ac >= 3) {
     console.log(NaN);
   }
 } else {
-  console.log(NaN);
+  console.log(1);
 }
 
 /**
