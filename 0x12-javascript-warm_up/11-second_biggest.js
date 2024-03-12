@@ -4,7 +4,7 @@ const ac = process.argv.length;
 let secondMax = 0;
 if (ac > 1) {
   process.argv = process.argv.map(Number);
-  process.argv.sort();
-  secondMax = process.argv[ac - 2];
+  process.argv.sort((a, b) => b - a);
+  secondMax = process.argv[1];
 }
 console.log(secondMax);
