@@ -8,8 +8,12 @@ if (ac > 3) {
   }
   max = process.argv[2];
   if (ac === 4) {
-    secondMax = max < process.argv[3] ? max : process.argv[3];
-  } else { 
+    if (max < process.argv[3]) {
+      secondMax = max;
+    } else if (process.argv[3] < max) {
+      secondMax = process.argv[3];
+    }
+  } else {
     for (let i = 3; i < ac; ++i) {
       if (process.argv[i] > max) {
         secondMax = max;
