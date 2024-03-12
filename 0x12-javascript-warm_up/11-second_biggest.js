@@ -7,6 +7,7 @@ if (ac > 3) {
     process.argv[i] = Number(process.argv[i]);
   }
   max = process.argv[2];
+  secondmax = process.argv[2];
   if (ac === 4) {
     if (max < process.argv[3]) {
       secondMax = max;
