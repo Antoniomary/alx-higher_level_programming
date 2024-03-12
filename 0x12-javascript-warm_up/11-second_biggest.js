@@ -7,10 +7,14 @@ if (ac > 3) {
     process.argv[i] = Number(process.argv[i]);
   }
   max = process.argv[2];
-  for (let i = 3; i < ac; ++i) {
-    if (process.argv[i] > max) {
-      secondMax = max;
-      max = process.argv[i];
+  if (ac === 4) {
+    secondMax = max < process.argv[3] ? max : process.argv[3];
+  } else { 
+    for (let i = 3; i < ac; ++i) {
+      if (process.argv[i] > max) {
+        secondMax = max;
+        max = process.argv[i];
+      }
     }
   }
 }
