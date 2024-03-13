@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const av = process.argv.slice(2);
 const ac = av.length;
-if (ac === 3) {
+if (ac >= 3) {
   const fs = require('fs');
   try {
     const contentA = fs.readFileSync(av[0], 'utf8').trim();
