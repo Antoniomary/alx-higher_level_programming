@@ -9,6 +9,5 @@ if (ac === 3) {
     fs.writeFileSync(av[2], contentA + '\n');
     fs.appendFileSync(av[2], contentB + '\n');
   } catch (err) {
-    console.log('An Error occured');
   }
 }
