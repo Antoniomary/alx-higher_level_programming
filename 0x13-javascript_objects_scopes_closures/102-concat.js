@@ -12,6 +12,6 @@ if (ac >= 3) {
     const stream = fs.createWriteStream(av[2]);
     stream.write(contentA);
     stream.write(contentB);
-    stream.end()
+    stream.end();
   }
 }
