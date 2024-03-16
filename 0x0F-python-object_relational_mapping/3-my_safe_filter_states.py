@@ -15,7 +15,6 @@ if __name__ == '__main__':
         passwd = argv[2]
         db_name = argv[3]
         condition = MySQLdb.string_literal(argv[4]).decode()
-        print(condition)
 
         try:
             db = MySQLdb.connect(
