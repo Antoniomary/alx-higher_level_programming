@@ -29,7 +29,7 @@ if __name__ == '__main__':
                 print(each)
             cur.close()
             db.close()
-        except MySQL.error:
-            print("Connection failed")
+        except MySQL.Error as e:
+            print(f"Erroe: {e}")
     else:
         print("Usage: <py script> <user> <password> <db>")
