@@ -28,7 +28,7 @@ if __name__ == '__main__':
                 print(each)
             cur.close()
             db.close()
-        except MySQL.Error as e:
+        except MySQLdb.Error as e:
             print(f"Error: {e}")
     else:
         print("Usage: <py script> <user> <password> <db>")
