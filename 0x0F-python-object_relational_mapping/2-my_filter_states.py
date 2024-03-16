@@ -22,9 +22,9 @@ if __name__ == '__main__':
                     user=user, passwd=passwd, db=db_name
                 )
             cur = db.cursor()
-            arg = "SELECT * FROM states WHERE name = '{}'".format(condition)
-            arg += " ORDER BY id ASC"
-            cur.execute(arg)
+            cur.execute(
+                    "SELECT * FROM states WHERE BINARY name = '{}' \
+                    ORDER BY id ASC".format(condition))
             for each in cur.fetchall():
                 print(each)
             cur.close()
