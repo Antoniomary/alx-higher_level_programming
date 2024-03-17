@@ -3,7 +3,7 @@
     a python script that lists all State objects from
     the database hbtn_0e_6_usa
 """
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, collate
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 from sys import argv
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     session = Session()
 
     states = session.query(State)\
-        .filter(State.name.like('%a%')).all()
+        .filter(collate(State.name, 'utf8mb4_bin').like('%a%')).all()
 
     for state in states:
         session.delete(state)
