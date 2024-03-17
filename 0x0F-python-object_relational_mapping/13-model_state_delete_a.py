@@ -21,8 +21,9 @@ if __name__ == "__main__":
     states = session.query(State)\
         .filter(collate(State.name, 'utf8mb4_bin').like('%a%')).all()
 
-    for state in states:
-        session.delete(state)
+    if (states):
+        for state in states:
+            session.delete(state)
         session.commit()
 
     session.close()
