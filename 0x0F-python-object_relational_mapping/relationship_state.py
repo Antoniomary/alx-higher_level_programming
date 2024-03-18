@@ -26,12 +26,6 @@ class State(Base):
             nullable=False
         )
 
-    def __init__(self, name):
-        """used to bypass circular import"""
-        from relationship_city import City
-        self.name = name
-        self.city = City
-
     cities = relationship(
-            'City', backref='state'
+            "City", backref="state", cascade="all, delete"
         )
