@@ -13,7 +13,7 @@ def find_peak(list_of_integers):
 
     left, right = 0, n - 1
     while left <= right:
-        mid = l + (r - l) // 2
+        mid = left + (right - left) // 2
         if ((mid == 0 or nums[mid - 1] <= nums[mid])
                 and (mid == n - 1 or nums[mid] >= nums[mid + 1])):
             break
