@@ -9,15 +9,17 @@ def find_peak(list_of_integers):
 
     nums = list_of_integers
     n = len(nums)
+    mid = 0
 
-    if n == 1:
-        return nums[0]
-    elif n == 2:
-        return nums[0] if nums[0] > nums[1] else nums[1]
-    else:
-        for i in range(1, n - 1):
-            if i - 1 == 0 and nums[0] > nums[1]:
-                return nums[i - 1]
-            elif nums[i] > nums[i - 1] and nums[i] > nums[i + 1]:
-                return nums[i]
-        return nums[-1] if nums[-1] > nums[-2] else nums[-2]
+    left, right = 0, n - 1
+    while left <= right:
+        mid = l + (r - l) // 2
+        if ((mid == 0 or nums[mid - 1] <= nums[mid])
+                and (mid == n - 1 or nums[mid] >= nums[mid + 1])):
+            break
+        elif mid > 0 and nums[mid - 1] > nums[mid]:
+            right = mid - 1
+        else:
+            left = mid + 1
+
+    return nums[mid]
