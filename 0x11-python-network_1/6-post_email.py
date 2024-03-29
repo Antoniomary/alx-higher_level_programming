@@ -15,7 +15,7 @@ def post_email():
     email = sys.argv[2].encode()
 
     response = requests.post(url, email)
-    print("Your email is:", response.text.decode())
+    print(response.text.decode())
 
 
 if __name__ == "__main__":
