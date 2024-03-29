@@ -12,9 +12,9 @@ import sys
 def post_email():
     """posts an email to a URL"""
     url = sys.argv[1]
-    email = sys.argv[2].encode()
+    email = sys.argv[2]
 
-    response = requests.post(url, email)
+    response = requests.post(url, {"email": email})
     print(response.text)
 
 
