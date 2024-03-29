@@ -14,7 +14,7 @@ def post_email():
     """posts an email to a URL"""
     url = sys.argv[1]
     email = sys.argv[2]
-    
+
     data = parse.urlencode({"email": email})
     data = data.encode('ascii')
     req = request.Request(url, data)
