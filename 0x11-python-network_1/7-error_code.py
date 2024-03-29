@@ -13,7 +13,7 @@ def get_response():
         response = requests.get(sys.argv[1])
         print(response.text)
     except requests.exceptions.HTTPError as e:
-        print("Error code:", e.code)
+        print("Error code:", r.response.status_code)
 
 
 if __name__ == "__main__":
