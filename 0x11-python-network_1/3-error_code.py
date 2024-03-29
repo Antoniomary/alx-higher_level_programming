@@ -12,8 +12,8 @@ def get_response():
     """gets response from a url and handles error"""
     try:
         with request.urlopen(sys.argv[1]) as res:
-        response = res.read()
-        print(response.decode())
+            response = res.read()
+            print(response.decode())
     except error.HTTPError as e:
         print("Error code:", e.code)
 
