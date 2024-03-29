@@ -19,7 +19,7 @@ def post_email():
     data = data.encode('ascii')
     req = request.Request(url, data)
     with request.urlopen(req) as response:
-        print("Your email is:", response.read().decode())
+        print(response.read().decode())
 
 
 if __name__ == "__main__":
