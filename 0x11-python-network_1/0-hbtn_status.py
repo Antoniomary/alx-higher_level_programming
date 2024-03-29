@@ -10,7 +10,7 @@ def get_stat():
         print("Body response:")
         print("    - type:", type(response))
         print("    - content:", response)
-        print("    - utf8 content:", response.decode())
+        print("    - utf8 content:", response.decode('utf8'))
 
 
 if __name__ == "__main__":
