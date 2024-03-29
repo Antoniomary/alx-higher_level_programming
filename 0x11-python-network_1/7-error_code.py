@@ -9,11 +9,11 @@ import sys
 
 def get_response():
     """gets response from a url and handles error"""
-    try:
-        response = requests.get(sys.argv[1])
+    response = requests.get(sys.argv[1])
+    if response.status_code < 400:
         print(response.text)
-    except requests.exceptions.HTTPError as e:
-        print("Error code:", r.response.status_code)
+    else:
+        print(f"Error code: {response.status_code}")
 
 
 if __name__ == "__main__":
