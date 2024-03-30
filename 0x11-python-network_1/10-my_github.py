@@ -7,8 +7,8 @@ import requests
 import sys
 
 
-def search_api():
-    """search an api"""
+def search_github_api():
+    """searches the github api for a user's id"""
     user, pwd = sys.argv[1], sys.argv[2]
     url = 'https://api.github.com/user'
     request = requests.get(url, headers={'Authorization': f'Bearer {pwd}'})
@@ -21,4 +21,4 @@ def search_api():
 
 
 if __name__ == "__main__":
-    search_api()
+    search_github_api()
