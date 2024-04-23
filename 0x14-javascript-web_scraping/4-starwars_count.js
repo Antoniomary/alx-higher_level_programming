@@ -9,13 +9,15 @@ if (ac === 3) {
       console.error(`Error: ${error.message}`);
       return;
     }
-    let count = 0;
-    const key = 'https://swapi-api.alx-tools.com/api/people/18/';
-    for (let i = 0; i < body.count; ++i) {
-      if (body.results[i].characters.includes(key)) {
-        count++;
+    if (response && response.statusCode === 200) {
+      let count = 0;
+      const key = 'https://swapi-api.alx-tools.com/api/people/18/';
+      for (let i = 0; i < body.count; ++i) {
+        if (body.results[i].characters.includes(key)) {
+          count++;
+        }
       }
+      console.log(count);
     }
-    console.log(count);
   });
 }
