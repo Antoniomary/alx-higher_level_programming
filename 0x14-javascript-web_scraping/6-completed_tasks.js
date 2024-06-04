@@ -18,14 +18,6 @@ if (ac === 3) {
         }
       }
     }
-    const len = Object.keys(result).length;
-    const key = Object.keys(result);
-    for (let i = 0; i < len; ++i) {
-      if (i === 0) process.stdout.write('{');
-      if (i === 0) process.stdout.write(` '${key[i]}': ${result[i + 1]}`);
-      else process.stdout.write(`  '${key[i]}': ${result[i + 1]}`);
-      if (i + 1 < len) console.log(',');
-      else console.log(' }');
-    }
+    console.log(result);
   });
 }
