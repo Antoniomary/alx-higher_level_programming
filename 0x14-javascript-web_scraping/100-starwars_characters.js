@@ -8,7 +8,6 @@ if (ac === 3) {
     if (error) {
       return;
     }
-    console.log(body.characters);
     for (const person of body.characters) {
       request({ url: person, json: true }, (error, response, body1) => {
         if (error) console.error('Error');
