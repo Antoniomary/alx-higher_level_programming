@@ -6,7 +6,6 @@ if (ac === 3) {
   const api = process.argv[2];
   request({ url: api, json: true }, (error, response, body) => {
     if (error) {
-      console.error(`Error: ${error.message}`);
       return;
     }
     let count = 0;
