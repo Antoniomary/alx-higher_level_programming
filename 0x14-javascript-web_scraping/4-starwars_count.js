@@ -11,8 +11,8 @@ if (ac === 3) {
     }
     let count = 0;
     const key = 'https://swapi-api.alx-tools.com/api/people/18/';
-    for (let i = 0; i < body.count; ++i) {
-      if (body.results[i].characters.includes(key)) {
+    for (let i = 0; i < body['results'].length; ++i) {
+      if (body['results'][i].characters.includes(key)) {
         count++;
       }
     }
